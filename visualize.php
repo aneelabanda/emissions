@@ -64,7 +64,7 @@ if ($conn->connect_error) {
          
              //append the above created object into the main array.
              array_push($jsonArray, $jsonArrayItem);
-             echo($jsonArray;)
+             echo($jsonArray[5])
              echo"['".$jsonArray['Country']."',".$jsonArray['CO2_emissions']."],";
            }
          }
