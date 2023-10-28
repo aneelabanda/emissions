@@ -72,12 +72,13 @@ $dbName = "CO2_emissions";
         //  $conn->close();
 
          if(mysqli_num_rows($result)> 0){
-
+          if( $row['Year'] == "1990"){
           while($row = mysqli_fetch_array($result)){
 
               echo "['".$row['Country']."', '".$row['CO2_emissions']."'],";
 
           }
+        }
 
 
       }
