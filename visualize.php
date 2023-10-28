@@ -59,7 +59,7 @@ if ($conn->connect_error) {
            while($row = $result->fetch_assoc()) {
              $jsonArrayItem = array();
              $jsonArrayItem['Country'] = $row['Country'];
-             $jsonArrayItem['CO2_emission'] = $row['CO2 emission (Tons)'];
+             $jsonArrayItem['CO2_emissions'] = $row['CO2_emissions'];
              //$jsonArrayItem['Year'] = $row['Year'];
          
              //append the above created object into the main array.
