@@ -31,7 +31,7 @@
 
          ?>
         ]);
-
+        console.log("data", data);
         var options = {};
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
