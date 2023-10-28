@@ -13,17 +13,18 @@ $password = "AnushAn33laJ0ey";
 $dbName = "CO2_emissions";
  
 //establishing the connection to the db.
-$conn = new mysqli($servername, $username, $password, $dbName);
+// $conn = new mysqli($servername, $username, $password, $dbName);
  
-//checking if there were any error during the last connection attempt
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+// //checking if there were any error during the last connection attempt
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
  
-  // $con = mysqli_connect("localhost","root","AnushAn33laJ0ey","CO2_emissions");
-  // if($con){
-  //   echo "connected";
-  // }
+   $con = mysqli_connect($servername, $username, $password, $dbName);
+   $result = mysqli_query($con, "SELECT * FROM dropped_data");
+   if($con){
+     echo "connected";
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,32 +46,42 @@ if ($conn->connect_error) {
           ['Country', 'CO2_emissions'],
  
          <?php
-         $query = "SELECT * FROM dropped_data";
+        //  $query = "SELECT * FROM dropped_data";
  
-         //storing the result of the executed query
-         $result = $conn->query($query);
+        //  //storing the result of the executed query
+        //  $result = $conn->query($query);
          
-         //initialize the array to store the processed data
-         $jsonArray = array();
+        //  //initialize the array to store the processed data
+        //  $jsonArray = array();
          
-         //check if there is any data returned by the SQL Query
-         if ($result->num_rows > 0) {
-           //Converting the results into an associative array
-           while($row = $result->fetch_assoc()) {
-             $jsonArrayItem = array();
-             $jsonArrayItem['Country'] = $row['Country'];
-             $jsonArrayItem['CO2_emissions'] = $row['CO2_emissions'];
-             //$jsonArrayItem['Year'] = $row['Year'];
+        //  //check if there is any data returned by the SQL Query
+        //  if ($result->num_rows > 0) {
+        //    //Converting the results into an associative array
+        //    while($row = $result->fetch_assoc()) {
+        //      $jsonArrayItem = array();
+        //      $jsonArrayItem['Country'] = $row['Country'];
+        //      $jsonArrayItem['CO2_emissions'] = $row['CO2_emissions'];
+        //      //$jsonArrayItem['Year'] = $row['Year'];
          
-             //append the above created object into the main array.
-             array_push($jsonArray, $jsonArrayItem);
-             echo($jsonArray[5])
-             echo"['".$jsonArray['Country']."',".$jsonArray['CO2_emissions']."],";
-           }
-         }
+        //      //append the above created object into the main array.
+        //      array_push($jsonArray, $jsonArrayItem);
+        //    }
+        //  }
          
-         //Closing the connection to DB
-         $conn->close();
+        //  //Closing the connection to DB
+        //  $conn->close();
+
+         if(mysqli_num_rows($result)> 0){
+
+          while($row = mysqli_fetch_array($result)){
+
+              echo "['".$row['Country']."', '".$row['Co2_emissions']."']],";
+
+          }
+
+
+      }
+
          
         //  //set the response content type as JSON
         //  header('Content-type: application/json');
