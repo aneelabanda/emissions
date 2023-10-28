@@ -75,7 +75,7 @@ $dbName = "CO2_emissions";
 
           while($row = mysqli_fetch_array($result)){
 
-              echo "['".$row['Country']."', '".$row['CO2_emissions']."']],";
+              echo "['".$row['Country']."', '".$row['CO2_emissions']."'],";
 
           }
 
