@@ -21,11 +21,33 @@ $dbName = "CO2_emissions";
 // }
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
-   $result = mysqli_query($con, "SELECT * FROM `dropped_data` Where Year = 1990");
+   $query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
+   $result = mysqli_query($con, $query);
    if($con){
      echo "connected";
    }
+   if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+    }
+   if (!$result) {
+    die("Query failed: " . mysqli_error($con));
+   }
 ?>
+
+<!-- // Check if the connection was successful
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Query to retrieve data
+$query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
+$result = mysqli_query($con, $query);
+
+// Check if the query was successful
+if (!$result) {
+    die("Query failed: " . mysqli_error($con));
+}
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +59,30 @@ $dbName = "CO2_emissions";
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {
+        'packages': ['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'CO2_emissions'],
+          <?php
+          // Loop through the data and format it as JavaScript array elements
+          while ($row = mysqli_fetch_assoc($result)) {
+              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . "],";
+          }
+          ?>
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <!-- <script type="text/javascript">
+      google.charts.load('current', {
         'packages':['geochart'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
@@ -45,7 +91,7 @@ $dbName = "CO2_emissions";
         var data = google.visualization.arrayToDataTable([
           ['Country', 'CO2_emissions'],
  
-         <?php
+        // ?php
         //  $query = "SELECT * FROM dropped_data";
  
         //  //storing the result of the executed query
@@ -71,15 +117,15 @@ $dbName = "CO2_emissions";
         //  //Closing the connection to DB
         //  $conn->close();
 
-         if(mysqli_num_rows($result)> 0){
+         //if(mysqli_num_rows($result)> 0){
 
           
-          while($row = mysqli_fetch_array($result)){
+          //while($row = mysqli_fetch_array($result)){
 
-              echo "['".$row['Country']."', '".$row['CO2_emissions']."'],";
+            //  echo "['".$row['Country']."', '".$row['CO2_emissions']."'],";
 
-          }
-        }
+          //}
+        //}
 
 
       
@@ -95,7 +141,7 @@ $dbName = "CO2_emissions";
         //     echo"['".$result['Country']."',".$result['CO2_emissions']."],";
         //   }
  
-         ?>
+         //?>
         ]);
         var options = {};
  
@@ -103,7 +149,7 @@ $dbName = "CO2_emissions";
  
         chart.draw(data, options);
       }
-    </script>
+    </script> -->
 </head>
 <body>
     <header id="header"><div class="inner">
