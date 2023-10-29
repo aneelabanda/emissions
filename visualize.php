@@ -59,7 +59,7 @@ if (!$result) {
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {
-        'packages': ['geochart'],
+        'packages': ['corechart'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
@@ -76,7 +76,7 @@ if (!$result) {
 
         var options = {};
 
-        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+        var chart = new google.visualization.Histogram(document.getElementById('regions_div'));
 
         chart.draw(data, options);
       }
