@@ -21,7 +21,7 @@ $dbName = "CO2_emissions";
 // }
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
-   $result = mysqli_query($con, "SELECT * FROM dropped_data");
+   $result = mysqli_query($con, "SELECT * FROM `dropped_data` Where Year = 1990");
    if($con){
      echo "connected";
    }
@@ -72,7 +72,8 @@ $dbName = "CO2_emissions";
         //  $conn->close();
 
          if(mysqli_num_rows($result)> 0){
-          if( $row['Year'] == "1990"){
+
+          
           while($row = mysqli_fetch_array($result)){
 
               echo "['".$row['Country']."', '".$row['CO2_emissions']."'],";
@@ -81,7 +82,7 @@ $dbName = "CO2_emissions";
         }
 
 
-      }
+      
 
          
         //  //set the response content type as JSON
