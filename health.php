@@ -202,18 +202,23 @@ function showUser(str) {
     <form method="POST">
       <div class="flex-container">
   <select name="Year" id="Year" placeholder="Choose a Year">
+  <option value="" disabled selected hidden>Choose a Year to visualize the CO2 emissions</option>
   <option value="1990">1990</option>
   <option value="1991">1991</option>
   <option value="1992">1992</option>
   <option value="1993">1993</option>
   </select>
   <select name="Country" id="Country" placeholder="Choose a Country">
+  <option value="" disabled selected hidden>Choose a Country</option>
+
   <!-- <option value="1990">1990</option>
   <option value="1991">1991</option>
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
   <select name="HealthIssue" id="HealthIssue" placeholder="Choose an Issue">
+  <option value="" disabled selected hidden>Choose an Issue</option>
+
   <!-- <option value="1990">1990</option>
   <option value="1991">1991</option>
   <option value="1992">1992</option>
