@@ -35,6 +35,7 @@ $dbName = "CO2_emissions";
     {
         // Store the Product name in a "name" variable
         $year = mysqli_real_escape_string($con,$_POST['Year']);
+        
          echo `$year`;
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
