@@ -200,6 +200,7 @@ function showUser(str) {
     </div>
 <div>
     <form method="POST">
+      <div>
   <label for="Year">Choose a Year:</label>
   <select name="Year" id="Year">
   <option value="1990">1990</option>
@@ -207,7 +208,7 @@ function showUser(str) {
   <option value="1992">1992</option>
   <option value="1993">1993</option>
   </select>
-  <input type="submit" value="Submit" name="submit">
+  <input type="submit" value="Submit" name="submit"></div>
 </form>
     </div>
     <div id="regions_div"></div>
