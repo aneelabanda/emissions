@@ -208,7 +208,7 @@ function showUser(str) {
   <option value="1993">1993</option>
   </select>
   <br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" name="submit">
 </form>
     </div>
     <div id="regions_div"></div>
