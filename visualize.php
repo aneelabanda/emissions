@@ -198,7 +198,7 @@ function showUser(str) {
         </nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
 <div>
-    <form action="/action_page.php">
+    <form method="POST">
   <label for="cars">Choose a car:</label>
   <select name="Year" id="Year">
   <option value="1990">1990</option>
