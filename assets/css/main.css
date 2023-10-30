@@ -2,11 +2,6 @@
 @import url(font-awesome.min.css);
 @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600";
 
-/*
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
 
 /* Reset */
 
@@ -1977,7 +1972,7 @@
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background: #6cc091;
+		background: wheat;
 		border-radius: 10px;
 		border: none;
 		border: solid 2px #555;
@@ -1986,7 +1981,7 @@
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		width: 100%;
+		width: 50%;
 	}
 
 		input[type="text"]:invalid,

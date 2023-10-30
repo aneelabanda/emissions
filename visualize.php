@@ -23,12 +23,12 @@ $dbName = "CO2_emissions";
    $con = mysqli_connect($servername, $username, $password, $dbName);
    $query = "SELECT * FROM `dropped_data`";
    $result = mysqli_query($con, $query);
-   if($con){
-     echo "connected";
-   }
-   if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-    }
+  //  if($con){
+  //    echo "connected";
+  //  }
+  //  if (!$con) {
+  //   die("Connection failed: " . mysqli_connect_error());
+  //   }
    
 
    if(isset($_POST['submit']))
@@ -49,10 +49,10 @@ $dbName = "CO2_emissions";
           // if the query executes with no errors 
           // a javascript alert message is displayed
           // which says the data is inserted successfully
-          if(mysqli_query($con,$result1))
-        {
-            echo '<script>alert("Product added successfully")</script>';
-        }
+        //   if(mysqli_query($con,$result1))
+        // {
+        //     echo '<script>alert("Product added successfully")</script>';
+        // }
     }
 ?>
 
@@ -207,7 +207,6 @@ function showUser(str) {
   <option value="1992">1992</option>
   <option value="1993">1993</option>
   </select>
-  <br><br>
   <input type="submit" value="Submit" name="submit">
 </form>
     </div>
