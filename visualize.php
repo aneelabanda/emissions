@@ -21,8 +21,8 @@ $dbName = "CO2_emissions";
 // }
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
-   $query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
-   $result = mysqli_query($con, $query);
+   //$query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
+   //$result = mysqli_query($con, $query);
    if($con){
      echo "connected";
    }
@@ -198,7 +198,8 @@ function showUser(str) {
         </nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
 </header>
-<form>
+<div>
+<form method = "POST">
 <select name="Year">
   <option value="">Select a Year:</option>
   <option value="1">1990</option>
@@ -206,9 +207,13 @@ function showUser(str) {
   <option value="3">1992</option>
   <option value="4">1993</option>
   </select>
+
+
   <br>
         <input type="submit" value="submit" name="submit">
 </form>
+</div>
+<br>
 <div id="regions_div"></div>
 
 </body>
