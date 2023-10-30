@@ -21,8 +21,8 @@ $dbName = "CO2_emissions";
 // }
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
-   //$query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
-   //$result = mysqli_query($con, $query);
+   $query = "SELECT * FROM `dropped_data`";
+   $result = mysqli_query($con, $query);
    if($con){
      echo "connected";
    }
@@ -40,15 +40,15 @@ $dbName = "CO2_emissions";
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
         $query = "SELECT * FROM `dropped_data` WHERE Year = $year";
-        $result = mysqli_query($con, $query);
-        if (!$result) {
+        $result1 = mysqli_query($con, $query);
+        if (!$result1) {
           die("Query failed: " . mysqli_error($con));
          }
           // The following code attempts to execute the SQL query
           // if the query executes with no errors 
           // a javascript alert message is displayed
           // which says the data is inserted successfully
-          if(mysqli_query($con,$result))
+          if(mysqli_query($con,$result1))
         {
             echo '<script>alert("Product added successfully")</script>';
         }
@@ -106,7 +106,7 @@ function showUser(str) {
           ['Country', 'CO2_emissions'],
           <?php
           // Loop through the data and format it as JavaScript array elements
-          while ($row = mysqli_fetch_assoc($result)) {
+          while ($row = mysqli_fetch_assoc($result1)) {
               echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . "],";
           }
           ?>
@@ -197,24 +197,20 @@ function showUser(str) {
             <!--<a href="elements.html">Elements</a>-->
         </nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
-</header>
 <div>
-<form method = "POST">
-<select name="Year">
-  <option value="">Select a Year:</option>
-  <option value="1">1990</option>
-  <option value="2">1991</option>
-  <option value="3">1992</option>
-  <option value="4">1993</option>
+    <form action="/action_page.php">
+  <label for="cars">Choose a car:</label>
+  <select name="Year" id="Year">
+  <option value="1990">1990</option>
+  <option value="1991">1991</option>
+  <option value="1992">1992</option>
+  <option value="1993">1993</option>
   </select>
-
-
-  <br>
-        <input type="submit" value="submit" name="submit">
+  <br><br>
+  <input type="submit" value="Submit">
 </form>
-</div>
-<br>
-<div id="regions_div"></div>
-
+    </div>
+    <div id="regions_div"></div>
+</header>
 </body>
 </html>
