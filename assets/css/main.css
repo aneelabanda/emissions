@@ -1631,7 +1631,7 @@
 		}
 
 	a {
-		color: #6cc091;
+		color: #555;
 		text-decoration: underline;
 	}
 
@@ -1986,6 +1986,7 @@
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
+		width:30%;
 	}
 
 		input[type="text"]:invalid,
@@ -2106,16 +2107,16 @@
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #6cc091;
-			border-color: #6cc091;
+			background: #555;
+			border-color: #555;
 			color: #ffffff;
 			content: '\f00c';
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #6cc091;
-			box-shadow: 0 0 0 1px #6cc091;
+			border-color: #555;
+			box-shadow: 0 0 0 1px #555;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2840,7 +2841,7 @@
 		position: fixed;
 		right: 0;
 		top: 0;
-		background: #6cc091;
+		background: #555;
 		color: #daefe3;
 		height: 100%;
 		max-width: 80%;
@@ -2962,7 +2963,7 @@
 		}
 
 		#banner .icon {
-			color: #6cc091;
+			color: #555;
 			font-size: 2em;
 		}
 

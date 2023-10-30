@@ -189,7 +189,7 @@ function showUser(str) {
       }
     </script> -->
 </head>
-<body>
+<body id="visualize">
     <header id="header"><div class="inner">
         <a href="index.html" class="logo"><strong>CO2 Emission</strong>Tracking</a>
         <nav id="nav"><a href="index.html">Home</a>
