@@ -21,8 +21,7 @@ $dbName = "CO2_emissions";
 // }
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
-   $query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
-   $result = mysqli_query($con, $query);
+   
    if($con){
      echo "connected";
    }
@@ -57,17 +56,36 @@ if (!$result) {
     <link rel="stylesheet" href="assets/css/main.css">
     <title>Document</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- <script>
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","getuser.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script> -->
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['geochart'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
-      function drawRegionsMap() {
+      function drawRegionsMap(year) {
         var data = google.visualization.arrayToDataTable([
           ['Country', 'CO2_emissions'],
           <?php
           // Loop through the data and format it as JavaScript array elements
+          $query = "SELECT * FROM `dropped_data` WHERE Year = year";
+          $result = mysqli_query($con, $query);
           while ($row = mysqli_fetch_assoc($result)) {
               echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . "],";
           }
@@ -159,7 +177,17 @@ if (!$result) {
             <!--<a href="elements.html">Elements</a>-->
         </nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
-    <div id="regions_div" style="width: 900px; height: 500px;"></div>
 </header>
+<form>
+<select name="users" onchange="drawRegionsMap(this.value)">
+  <option value="">Select a person:</option>
+  <option value="1">1990</option>
+  <option value="2">1992</option>
+  <option value="3">2000</option>
+  <option value="4">2021</option>
+  </select>
+</form>
+<div id="regions_div"></div>
+
 </body>
 </html>
