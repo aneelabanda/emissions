@@ -21,7 +21,8 @@ $dbName = "CO2_emissions";
 // }
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
-   
+   $query = "SELECT * FROM `dropped_data` WHERE Year = 1990";
+   $result = mysqli_query($con, $query);
    if($con){
      echo "connected";
    }
@@ -56,7 +57,7 @@ if (!$result) {
     <link rel="stylesheet" href="assets/css/main.css">
     <title>Document</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <!-- <script>
+    <script>
 function showUser(str) {
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";
@@ -72,20 +73,18 @@ function showUser(str) {
     xmlhttp.send();
   }
 }
-</script> -->
+</script>
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['geochart'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
-      function drawRegionsMap(year) {
+      function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
           ['Country', 'CO2_emissions'],
           <?php
           // Loop through the data and format it as JavaScript array elements
-          $query = "SELECT * FROM `dropped_data` WHERE Year = year";
-          $result = mysqli_query($con, $query);
           while ($row = mysqli_fetch_assoc($result)) {
               echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . "],";
           }
@@ -179,12 +178,12 @@ function showUser(str) {
     </div>
 </header>
 <form>
-<select name="users" onchange="drawRegionsMap(this.value)">
-  <option value="">Select a person:</option>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a Year:</option>
   <option value="1">1990</option>
-  <option value="2">1992</option>
-  <option value="3">2000</option>
-  <option value="4">2021</option>
+  <option value="2">1991</option>
+  <option value="3">1992</option>
+  <option value="4">1993</option>
   </select>
 </form>
 <div id="regions_div"></div>
