@@ -29,9 +29,30 @@ $dbName = "CO2_emissions";
    if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
     }
-   if (!$result) {
-    die("Query failed: " . mysqli_error($con));
-   }
+   
+
+   if(isset($_POST['submit']))
+    {
+        // Store the Product name in a "name" variable
+        $year = mysqli_real_escape_string($con,$_POST['Year']);
+        
+        // Store the Category ID in a "id" variable      
+        // Creating an insert query using SQL syntax and
+        // storing it in a variable.
+        $query = "SELECT * FROM `dropped_data` WHERE Year = $year";
+        $result = mysqli_query($con, $query);
+        if (!$result) {
+          die("Query failed: " . mysqli_error($con));
+         }
+          // The following code attempts to execute the SQL query
+          // if the query executes with no errors 
+          // a javascript alert message is displayed
+          // which says the data is inserted successfully
+          if(mysqli_query($con,$result))
+        {
+            echo '<script>alert("Product added successfully")</script>';
+        }
+    }
 ?>
 
 <!-- // Check if the connection was successful
@@ -57,7 +78,7 @@ if (!$result) {
     <link rel="stylesheet" href="assets/css/main.css">
     <title>Document</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script>
+    <!-- <script>
 function showUser(str) {
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";
@@ -73,7 +94,7 @@ function showUser(str) {
     xmlhttp.send();
   }
 }
-</script>
+</script> -->
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['geochart'],
@@ -178,13 +199,15 @@ function showUser(str) {
     </div>
 </header>
 <form>
-<select name="users" onchange="showUser(this.value)">
+<select name="Year">
   <option value="">Select a Year:</option>
   <option value="1">1990</option>
   <option value="2">1991</option>
   <option value="3">1992</option>
   <option value="4">1993</option>
   </select>
+  <br>
+        <input type="submit" value="submit" name="submit">
 </form>
 <div id="regions_div"></div>
 
