@@ -199,7 +199,7 @@ function showUser(str) {
     </div>
 <div>
     <form method="POST">
-  <label for="cars">Choose a car:</label>
+  <label for="Year">Choose a Year:</label>
   <select name="Year" id="Year">
   <option value="1990">1990</option>
   <option value="1991">1991</option>
