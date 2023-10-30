@@ -1871,6 +1871,11 @@
 
 /* Flex */
 
+.flex-container {
+	display: flex;
+	
+  }
+
 	.flex {
 		display: -ms-flexbox;
 		-ms-flex-wrap: wrap;

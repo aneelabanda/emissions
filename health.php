@@ -200,7 +200,7 @@ function showUser(str) {
     </div>
 <div>
     <form method="POST">
-      <div>
+      <div class="flex-container">
   <select name="Year" id="Year" placeholder="Choose a Year">
   <option value="1990">1990</option>
   <option value="1991">1991</option>
