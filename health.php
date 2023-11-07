@@ -41,7 +41,9 @@ $dbName = "CO2_emissions";
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
         $query = "SELECT * FROM `merged_data` WHERE Year = $year";
+        $query_country = "SELECT DISTINCT Country FROM `merged_data`"
         $result1 = mysqli_query($con, $query);
+        $result2 = mysqli_query($con, $query_country);
         if (!$result1) {
           die("Query failed: " . mysqli_error($con));
          }
@@ -238,7 +240,13 @@ function showUser(str) {
   </select>
   <select name="Country" id="Country" placeholder="Choose a Country">
   <option value="" disabled selected>Choose a Country</option>
-
+ <?php
+    while ($row = mysqli_fetch_assoc($result2)){
+    ?>
+                        <option value="<?php echo $row['Country'];?>"><?php echo $row['Country'];?></option>
+                <?php
+                    }
+                ?>
   <!-- <option value="1990">1990</option>
   <option value="1991">1991</option>
   <option value="1992">1992</option>
