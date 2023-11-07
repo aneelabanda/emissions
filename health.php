@@ -25,7 +25,12 @@ $dbName = "CO2_emissions";
    $result = mysqli_query($con, $query);
    $query_country = "SELECT DISTINCT Country FROM `merged_data`";
    $result2 = mysqli_query($con, $query_country);
+   $query_issue = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'merged_data' ORDER BY ORDINAL_POSITION DESC LIMIT 28";
+   $result3 = mysqli_query($con, $query_issue);
    if (!$result2) {
+    die("Query failed: " . mysqli_error($con));
+   }
+   if (!$result3) {
     die("Query failed: " . mysqli_error($con));
    }
   //  if($con){
@@ -263,7 +268,17 @@ function showUser(str) {
   </select>
   <select name="HealthIssue" id="HealthIssue" placeholder="Choose an Issue">
   <option value="" disabled selected>Choose an Issue</option>
+  <?php
+    while ($row = mysqli_fetch_assoc($result3)){
+    ?>
+    <option value="<?php echo $row['COLUMN_NAME']; ?>">
 
+<?php echo $row['COLUMN_NAME']; ?>
+
+</option>
+ <?php
+    }
+    ?>
   <!-- <option value="1990">1990</option>
   <option value="1991">1991</option>
   <option value="1992">1992</option>
