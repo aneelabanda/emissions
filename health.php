@@ -57,7 +57,7 @@ $dbName = "CO2_emissions";
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
-        $query = "SELECT Country, CO2_emissions, $healthissue FROM `merged_data` WHERE Year = $year";
+        $query = "SELECT * FROM `merged_data` WHERE Year = $year";
         $result1 = mysqli_query($con, $query);
         
         if (!$result1) {
