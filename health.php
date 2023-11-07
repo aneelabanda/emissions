@@ -248,7 +248,13 @@ function showUser(str) {
  <?php
     while ($row = mysqli_fetch_assoc($result2)){
     ?>
-    <option value="<?php echo "".$row['Country'].";?>"><?php echo ".$row['Country'].";?></option>
+    <option value="<?php echo $row['Country']; ?>">
+
+<?php echo $row['Country']; ?>
+
+<?php echo $row_list['c_name']; ?>
+
+</option>
  <?php
     }
     ?>
