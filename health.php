@@ -252,8 +252,6 @@ function showUser(str) {
 
 <?php echo $row['Country']; ?>
 
-<?php echo $row_list['c_name']; ?>
-
 </option>
  <?php
     }
