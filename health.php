@@ -127,7 +127,7 @@ function showUser(str) {
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
-              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . ", " . $row["Iron deficiency"] . "],";
+              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . ", " . $row[`$healthissue`] . "],";
           }
           ?>
         ]);
