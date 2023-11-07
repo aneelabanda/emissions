@@ -23,6 +23,11 @@ $dbName = "CO2_emissions";
    $con = mysqli_connect($servername, $username, $password, $dbName);
    $query = "SELECT * FROM `merged_data`";
    $result = mysqli_query($con, $query);
+   $query_country = "SELECT DISTINCT Country FROM `merged_data`";
+   $result2 = mysqli_query($con, $query_country);
+   if (!$result2) {
+    die("Query failed: " . mysqli_error($con));
+   }
   //  if($con){
   //    echo "connected";
   //  }
@@ -41,15 +46,12 @@ $dbName = "CO2_emissions";
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
         $query = "SELECT * FROM `merged_data` WHERE Year = $year";
-        $query_country = "SELECT DISTINCT Country FROM `merged_data`";h
         $result1 = mysqli_query($con, $query);
-        $result2 = mysqli_query($con, $query_country);
+        
         if (!$result1) {
           die("Query failed: " . mysqli_error($con));
          }
-        if (!$result2) {
-            die("Query failed: " . mysqli_error($con));
-           }
+        
           // The following code attempts to execute the SQL query
           // if the query executes with no errors 
           // a javascript alert message is displayed
