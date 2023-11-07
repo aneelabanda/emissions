@@ -53,7 +53,7 @@ $dbName = "CO2_emissions";
         $country = mysqli_real_escape_string($con,$_POST['Country']);
         $healthissue = mysqli_real_escape_string($con,$_POST['HealthIssue']);
         
-         //echo `$year`;
+         echo `$healthissue`;
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
@@ -127,7 +127,7 @@ function showUser(str) {
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
-              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . ", " . $row[`$healthissue`] . "],";
+              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . ", " . $row[``] . "],";
           }
           ?>
         ]);
