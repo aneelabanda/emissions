@@ -27,10 +27,15 @@ $dbName = "CO2_emissions";
    $result2 = mysqli_query($con, $query_country);
    $query_issue = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'merged_data' ORDER BY ORDINAL_POSITION DESC LIMIT 28";
    $result3 = mysqli_query($con, $query_issue);
+   $query_year = "SELECT DISTINCT Year FROM `merged_data`";
+   $result4 = mysqli_query($con, $query_year);
    if (!$result2) {
     die("Query failed: " . mysqli_error($con));
    }
    if (!$result3) {
+    die("Query failed: " . mysqli_error($con));
+   }
+   if (!$result4) {
     die("Query failed: " . mysqli_error($con));
    }
   //  if($con){
@@ -45,8 +50,10 @@ $dbName = "CO2_emissions";
     {
         // Store the Product name in a "name" variable
         $year = mysqli_real_escape_string($con,$_POST['Year']);
+        $country = mysqli_real_escape_string($con,$_POST['Country']);
+        $healthissue = mysqli_real_escape_string($con,$_POST['HealthIssue']);
         
-         echo `$year`;
+         //echo `$year`;
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
@@ -110,17 +117,17 @@ function showUser(str) {
 </script> -->
     <script type="text/javascript">
       google.charts.load('current', {
-        'packages': ['drawChart'],
+        'packages': ['corechart', 'bar'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Country', 'CO2_emissions'],
+          ['Country', 'CO2_emissions(Tons)', 'No. of People Died due this health issue'],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
-              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . "],";
+              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . ", " . $row[`$healthissue`] . "],";
           }
           ?>
         ]);
@@ -215,38 +222,17 @@ function showUser(str) {
       <div class="flex-container">
   <select name="Year" id="Year" placeholder="Choose a Year">
   <option value="" disabled selected>Choose a Year to visualize the CO2 emissions</option>
-  <option value="1990">1990</option>
-  <option value="1991">1991</option>
-  <option value="1992">1992</option>
-  <option value="1993">1993</option>
-  <option value="1994">1994</option>
-  <option value="1995">1995</option>
-  <option value="1996">1996</option>
-  <option value="1997">1997</option>
-  <option value="1998">1998</option>
-  <option value="1999">1999</option>
-  <option value="2000">2000</option>
-  <option value="2001">2001</option>
-  <option value="2002">2002</option>
-  <option value="2003">2003</option>
-  <option value="2004">2004</option>
-  <option value="2005">2005</option>
-  <option value="2006">2006</option>
-  <option value="2007">2007</option>
-  <option value="2008">2008</option>
-  <option value="2009">2009</option>
-  <option value="2010">2010</option>
-  <option value="2011">2011</option>
-  <option value="2012">2012</option>
-  <option value="2013">2013</option>
-  <option value="2014">2014</option>
-  <option value="2015">2015</option>
-  <option value="2016">2016</option>
-  <option value="2017">2017</option>
-  <option value="2018">2018</option>
-  <option value="2019">2019</option>
-  <option value="2020">2020</option>
-  <option value="2021">2021</option>
+  <?php
+    while ($row = mysqli_fetch_assoc($result4)){
+    ?>
+    <option value="<?php echo $row['Year']; ?>">
+
+<?php echo $row['Year']; ?>
+
+</option>
+ <?php
+    }
+    ?>
   </select>
   <select name="Country" id="Country" placeholder="Choose a Country">
   <option value="" disabled selected>Choose a Country</option>
