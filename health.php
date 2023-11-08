@@ -123,11 +123,11 @@ function showUser(str) {
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Country', 'No. of People Died due this health issue'],
+          ['No. of People Died due this health issue', 'CO2_emissions'],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
-              echo "['" . $row['Country'] . "', " . $row["Iron deficiency"] . "],";
+              echo "[" . $row["Iron deficiency"] . "]," . $row['CO2_emissions'] . "";
           }
           ?>
         ]);
