@@ -134,7 +134,7 @@ function showUser(str) {
 
         var options = {};
 
-        var chart = new google.visualization.PieChart(document.getElementById('regions_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('regions_div'));
 
         chart.draw(data, options);
       }
