@@ -117,24 +117,24 @@ function showUser(str) {
 </script> -->
     <script type="text/javascript">
       google.charts.load('current', {
-        'packages': ['corechart', 'bar'],
+        'packages': ['corechart'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Country', 'CO2_emissions(Tons)', 'No. of People Died due this health issue'],
+          ['Country', 'No. of People Died due this health issue'],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
-              echo "['" . $row['Country'] . "', " . $row['CO2_emissions'] . ", " . $row["Iron deficiency"] . "],";
+              echo "['" . $row['Country'] . "', " . $row["Iron deficiency"] . "],";
           }
           ?>
         ]);
 
         var options = {};
 
-        var chart = new google.visualization.BarChart(document.getElementById('regions_div'));
+        var chart = new google.visualization.PieChart(document.getElementById('regions_div'));
 
         chart.draw(data, options);
       }
