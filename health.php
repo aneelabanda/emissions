@@ -205,7 +205,12 @@ function showUser(str) {
   <input type="submit" value="Submit" name="submit"></div>
 </form>
     </div>
-    <div id="regions_div"></div>
+    <div class="grid-container">
+    <div class="grid-item" id="regions_div"></div>
+    <div class="grid-item" id="regions_div"></div>
+    <div class="grid-item" id="regions_div"></div>
+    <div class="grid-item" id="regions_div"></div>
+  </div>
 </header>
 </body>
 </html>
