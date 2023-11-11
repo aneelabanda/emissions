@@ -178,8 +178,7 @@ function showUser(str) {
         var options3 = {
           title: '<?php echo $country; ?>',
           is3D: true,
-          width: 100%,
-          pieHole: 0.5
+          pieHole: 0.5,
         };
 
         var chart3 = new google.visualization.PieChart(document.getElementById('pie_div'));
