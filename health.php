@@ -183,7 +183,7 @@ function showUser(str) {
             width:'100%',
             height:'75%'
           },
-          colors:['red','#004411'].
+          colors:['red','#004411']
          
         };
 
