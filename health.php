@@ -123,7 +123,7 @@ function showUser(str) {
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'No. of People Died due this health issue'],
+          ['Year', 'No.of Deaths due to health issue'],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
@@ -132,7 +132,9 @@ function showUser(str) {
           ?>
         ]);
 
-        var options = {};
+        var options = {
+          title: $country,
+        };
 
         var chart = new google.visualization.LineChart(document.getElementById('regions_div'));
 
