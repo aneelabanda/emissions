@@ -182,7 +182,8 @@ function showUser(str) {
           chartArea:{
             width:'100%',
             height:'75%'
-          }
+          },
+          colors:['red','#004411'].
          
         };
 
