@@ -163,7 +163,7 @@ function showUser(str) {
           pieHole: 0.4,
         };
 
-        var chart2 = new google.visualization.PieChart(document.getElementById('year_div'));
+        var chart2 = new google.visualization.Histogram(document.getElementById('year_div'));
 
         chart2.draw(data2, options2);
       }
