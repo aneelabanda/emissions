@@ -123,18 +123,18 @@ function showUser(str) {
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['No. of People Died due this health issue', 'CO2_emissions'],
+          ['No. of People Died due this health issue', 'CO2_emissions', 'Year']
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
-              echo "[" . $row["Iron deficiency"] . "," . $row['CO2_emissions'] . "],";
+              echo "[" . $row["$healthissue"] . "," . $row['CO2_emissions'] . ",". $row['Year'] . "],";
           }
           ?>
         ]);
 
         var options = {};
 
-        var chart = new google.visualization.LineChart(document.getElementById('regions_div'));
+        var chart = new google.visualization.ScatterChart(document.getElementById('regions_div'));
 
         chart.draw(data, options);
       }
