@@ -139,6 +139,7 @@ function showUser(str) {
 
         var data2 = google.visualization.arrayToDataTable([
           ['Country', 'No.of Deaths due to <?php echo $healthissue ?>', 'CO2_emissions'],
+          ['',0,0],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result5)) {
@@ -147,6 +148,7 @@ function showUser(str) {
           }
 
           ?>
+          ['',0,0e]
         ]);
 
        
