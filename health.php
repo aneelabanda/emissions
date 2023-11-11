@@ -179,7 +179,7 @@ function showUser(str) {
           title: '<?php echo $country; ?>',
           is3D: true,
           pieHole: 0.5,
-          width: 100% ,
+          width: 100%
         };
 
         var chart3 = new google.visualization.PieChart(document.getElementById('pie_div'));
