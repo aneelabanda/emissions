@@ -51,7 +51,7 @@ $dbName = "CO2_emissions";
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
-        $graph1_query = "SELECT * FROM `merged_data` WHERE Country = '$country'";
+        $graph1_query = "SELECT * FROM `merged_data` WHERE Year = $year";
         $result1 = mysqli_query($con, $graph1_query);
         $graph2_query = "SELECT * FROM `merged_data` WHERE Year = $year and Country = '$country'";
         $result5 = mysqli_query($con, $graph2_query);
@@ -177,6 +177,9 @@ function showUser(str) {
        
         var options3 = {
           title: '<?php echo $country; ?>',
+          is3D: true,
+          width: 100%,
+          pieHole: 0.5,
         };
 
         var chart3 = new google.visualization.PieChart(document.getElementById('pie_div'));
