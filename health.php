@@ -143,7 +143,7 @@ function showUser(str) {
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result5)) {
             $emissions = $row["CO2_emissions"] /1 1000;
-              echo "['". $row['Country'] ."',". $row[$healthissue].",". $emissions ."], ";
+            echo "['". $row['Country'] ."',". $row[$healthissue].",". $emissions ."], ";
           }
           ?>
         ]);
@@ -151,7 +151,6 @@ function showUser(str) {
        
         var options2 = {
           title: '<?php echo $year; ?>',
-          pieHole: 0.4,
         };
 
         var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
