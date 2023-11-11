@@ -148,11 +148,11 @@ function showUser(str) {
 
 
         var data2 = google.visualization.arrayToDataTable([
-          ['Country', 'No.of Deaths due to <?php echo $healthissue ?>'],
+          ['Country', 'No.of Deaths due to <?php echo $healthissue ?>', 'CO2_emissions'],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result5)) {
-              echo "['". $row['Country'] ."',". $row[$healthissue]."], ";
+              echo "['". $row['Country'] ."',". $row[$healthissue].",". $row['CO2_emissions']. / 1000"], ";
           }
           ?>
         ]);
@@ -163,7 +163,7 @@ function showUser(str) {
           pieHole: 0.4,
         };
 
-        var chart2 = new google.visualization.Histogram(document.getElementById('year_div'));
+        var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
 
         chart2.draw(data2, options2);
       }
