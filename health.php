@@ -55,8 +55,10 @@ $dbName = "CO2_emissions";
         $result1 = mysqli_query($con, $graph1_query);
         $graph2_query = "SELECT * FROM `merged_data` WHERE Year = $year and Country = '$country'";
         $result5 = mysqli_query($con, $graph2_query);
+        $graph3_query = "SELECT * FROM `merged_data` WHERE Country = '$country'";
+        $result6 = mysqli_query($con, $graph3_query);
         
-        if (!$result1 || !$result5) {
+        if (!$result1 || !$result5 || !$result6) {
           die("Query failed: " . mysqli_error($con));
       }
           // The following code attempts to execute the SQL query
@@ -164,7 +166,7 @@ function showUser(str) {
           ['Year', 'No.of Deaths due to <?php echo $healthissue ?>'],
           <?php
           // Loop through the data and format it as JavaScript array elements
-          while ($row = mysqli_fetch_assoc($result1)) {
+          while ($row = mysqli_fetch_assoc($result6)) {
             echo "['". $row['Year'] ."',". $row[$healthissue]."], ";
         }
 
