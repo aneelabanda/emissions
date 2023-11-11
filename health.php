@@ -159,6 +159,27 @@ function showUser(str) {
         var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
 
         chart2.draw(data2, options2);
+
+        var data3 = google.visualization.arrayToDataTable([
+          ['Year', 'No.of Deaths due to <?php echo $healthissue ?>'],
+          <?php
+          // Loop through the data and format it as JavaScript array elements
+          while ($row = mysqli_fetch_assoc($result1)) {
+            echo "['". $row['Year'] ."',". $row[$healthissue]."], ";
+        }
+
+          ?>
+        
+        ]);
+
+       
+        var options3 = {
+          title: '<?php echo $country; ?>',
+        };
+
+        var chart3 = new google.visualization.PieChart(document.getElementById('pie_div'));
+
+        chart3.draw(data3, options3);
       }
     </script>
     
@@ -230,7 +251,7 @@ function showUser(str) {
     <div class="grid-container">
     <div class="grid-item" id="regions_div"></div>
     <div class="grid-item" id="year_div"></div>
-    <div class="grid-item" id="regions_div"></div>
+    <div class="grid-item" id="pie_div"></div>
     <div class="grid-item" id="regions_div"></div>
   </div>
 </header>

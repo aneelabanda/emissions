@@ -217,8 +217,8 @@
 /* Grid */
 	.grid-container {
 		display: grid;
-		grid-template-columns: auto;
-		padding: 10px;
+		grid-template-columns: auto auto;
+		padding: 5px;
  	}
    .grid-item {
 		padding: 20px;
