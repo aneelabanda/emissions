@@ -148,7 +148,7 @@ function showUser(str) {
           }
 
           ?>
-          ['',0,0e]
+          ['',0,0]
         ]);
 
        
