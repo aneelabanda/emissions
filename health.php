@@ -29,22 +29,16 @@ $dbName = "CO2_emissions";
    $result3 = mysqli_query($con, $query_issue);
    $query_year = "SELECT DISTINCT Year FROM `merged_data`";
    $result4 = mysqli_query($con, $query_year);
-   if (!$result2) {
-    die("Query failed: " . mysqli_error($con));
-   }
-   if (!$result3) {
-    die("Query failed: " . mysqli_error($con));
-   }
-   if (!$result4) {
-    die("Query failed: " . mysqli_error($con));
-   }
+   if (!$con || !$result2 || !$result3 || !$result4) {
+    die("Connection or query failed: " . mysqli_error($con));
+}
   //  if($con){
   //    echo "connected";
   //  }
   //  if (!$con) {
   //   die("Connection failed: " . mysqli_connect_error());
   //   }
-   
+  $result1 = $result5 = null;
 
    if(isset($_POST['submit']))
     {
@@ -62,13 +56,9 @@ $dbName = "CO2_emissions";
         $graph2_query = "SELECT * FROM `merged_data` WHERE Year = $year";
         $result5 = mysqli_query($con, $graph2_query);
         
-        if (!$result1) {
+        if (!$result1 || !$result5) {
           die("Query failed: " . mysqli_error($con));
-         }
-         if (!$result5) {
-          die("Query failed: " . mysqli_error($con));
-         }
-        
+      }
           // The following code attempts to execute the SQL query
           // if the query executes with no errors 
           // a javascript alert message is displayed
@@ -152,7 +142,8 @@ function showUser(str) {
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result5)) {
-              echo "['". $row['Country'] ."',". $row[$healthissue].",". $row['CO2_emissions']. / 1000"], ";
+            $emissions = $row["CO2_emissions"] /1 1000;
+              echo "['". $row['Country'] ."',". $row[$healthissue].",". $emissions ."], ";
           }
           ?>
         ]);
