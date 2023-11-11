@@ -57,10 +57,15 @@ $dbName = "CO2_emissions";
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
-        $query = "SELECT * FROM `merged_data` WHERE Country = '$country'";
-        $result1 = mysqli_query($con, $query);
+        $graph1_query = "SELECT * FROM `merged_data` WHERE Country = '$country'";
+        $result1 = mysqli_query($con, $graph1_query);
+        $graph2_query = "SELECT * FROM `merged_data` WHERE Year = $year";
+        $result5 = mysqli_query($con, $graph2_query);
         
         if (!$result1) {
+          die("Query failed: " . mysqli_error($con));
+         }
+         if (!$result5) {
           die("Query failed: " . mysqli_error($con));
          }
         
@@ -122,7 +127,7 @@ function showUser(str) {
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
-        var data = google.visualization.arrayToDataTable([
+        var data1 = google.visualization.arrayToDataTable([
           ['Year', 'No.of Deaths due to <?php echo $healthissue ?>'],
           <?php
           // Loop through the data and format it as JavaScript array elements
@@ -133,13 +138,34 @@ function showUser(str) {
         ]);
 
        
-        var options = {
+        var options1 = {
           title: '<?php echo $country; ?>'
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('regions_div'));
+        var chart1 = new google.visualization.LineChart(document.getElementById('regions_div'));
 
-        chart.draw(data, options);
+        chart1.draw(data1, options1);
+
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Country', 'No.of Deaths due to <?php echo $healthissue ?>'],
+          <?php
+          // Loop through the data and format it as JavaScript array elements
+          while ($row = mysqli_fetch_assoc($result5)) {
+              echo "['". $row['Country'] ."',". $row[$healthissue]."], ";
+          }
+          ?>
+        ]);
+
+       
+        var options2 = {
+          title: '<?php echo $year; ?>',
+          pieHole: 0.4,
+        };
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('year_div'));
+
+        chart2.draw(data2, options2);
       }
     </script>
     
@@ -210,7 +236,7 @@ function showUser(str) {
     </div>
     <div class="grid-container">
     <div class="grid-item" id="regions_div"></div>
-    <div class="grid-item" id="regions_div"></div>
+    <div class="grid-item" id="year_div"></div>
     <div class="grid-item" id="regions_div"></div>
     <div class="grid-item" id="regions_div"></div>
   </div>
