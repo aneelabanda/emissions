@@ -142,8 +142,8 @@ function showUser(str) {
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result5)) {
-            $emissions = $row["CO2_emissions"] /1000;
-            echo "['". $row['Country'] ."',". $row[$healthissue].",". $emissions ."], ";
+            $emissions = $row["CO2_emissions"] /10000;
+            echo "['". $row['Code_y'] ."',". $row[$healthissue].",". $emissions ."], ";
           }
           ?>
         ]);
