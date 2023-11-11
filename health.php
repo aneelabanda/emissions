@@ -131,7 +131,8 @@ function showUser(str) {
 
        
         var options1 = {
-          title: '<?php echo $country; ?>'
+          title: '<?php echo $country; ?>',
+          is3D: true
         };
 
         var chart1 = new google.visualization.LineChart(document.getElementById('regions_div'));
@@ -156,6 +157,7 @@ function showUser(str) {
        
         var options2 = {
           title: '<?php echo $year; ?>',
+          is3D: true
         };
 
         var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
