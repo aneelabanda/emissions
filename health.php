@@ -132,8 +132,10 @@ function showUser(str) {
           ?>
         ]);
 
+        var country = $country;
+
         var options = {
-          title: $country,
+          title: country
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('regions_div'));
