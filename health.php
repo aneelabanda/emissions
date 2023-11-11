@@ -123,7 +123,7 @@ function showUser(str) {
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['No. of People Died due this health issue', 'CO2_emissions', 'Year']
+          ['No. of People Died due this health issue', 'CO2_emissions', 'Year'],
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result1)) {
