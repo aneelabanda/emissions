@@ -53,7 +53,7 @@ $dbName = "CO2_emissions";
         // storing it in a variable.
         $graph1_query = "SELECT * FROM `merged_data` WHERE Country = '$country'";
         $result1 = mysqli_query($con, $graph1_query);
-        $graph2_query = "SELECT * FROM `merged_data` WHERE Year = $year";
+        $graph2_query = "SELECT * FROM `merged_data` WHERE Year = $year and Country = '$country'";
         $result5 = mysqli_query($con, $graph2_query);
         
         if (!$result1 || !$result5) {
@@ -142,9 +142,10 @@ function showUser(str) {
           <?php
           // Loop through the data and format it as JavaScript array elements
           while ($row = mysqli_fetch_assoc($result5)) {
-            $emissions = $row["CO2_emissions"] /10000;
-            echo "['". $row['Code_y'] ."',". $row[$healthissue].",". $emissions ."], ";
+            $emissions = $row["CO2_emissions"] /100000;
+            echo "['". $row['Country'] ."',". $row[$healthissue].",". $row['Density(km2)'] ."], ";
           }
+
           ?>
         ]);
 
