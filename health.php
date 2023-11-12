@@ -38,7 +38,7 @@ $dbName = "CO2_emissions";
   //  if (!$con) {
   //   die("Connection failed: " . mysqli_connect_error());
   //   }
-  $result1 = $result5 = null;
+  $result1 = $result5 = $result6 = null;
 
    if(isset($_POST['submit']))
     {
@@ -131,8 +131,10 @@ function showUser(str) {
 
        
         var options1 = {
-          title: '<?php echo $country; ?>',
-          is3D: true
+          title: '<?php echo $year; ?>',
+          is3D: true,
+          hAxis: {title: 'Countries'},
+          vAxis: {title: 'No.of Deaths due to <?php echo $healthissue; ?>'},
         };
 
         var chart1 = new google.visualization.LineChart(document.getElementById('regions_div'));
@@ -157,7 +159,9 @@ function showUser(str) {
        
         var options2 = {
           title: '<?php echo $year; ?>',
-          is3D: true
+          is3D: true,
+          vAxis: {title: 'No.of Deaths due to <?php echo $healthissue; ?>'},
+
         };
 
         var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
@@ -192,6 +196,9 @@ function showUser(str) {
         var chart3 = new google.visualization.BarChart(document.getElementById('pie_div'));
 
         chart3.draw(data3, options3);
+        var chart4 = new google.visualization.ColumnChart(document.getElementById('bar_div'));
+
+        chart4.draw(data3, options3);
       }
     </script>
     
@@ -264,7 +271,7 @@ function showUser(str) {
     <div class="grid-item" id="regions_div"></div>
     <div class="grid-item" id="year_div"></div>
     <div class="grid-item" id="pie_div"></div>
-    <div class="grid-item" id="regions_div"></div>
+    <div class="grid-item" id="bar_div"></div>
   </div>
 </header>
 </body>
