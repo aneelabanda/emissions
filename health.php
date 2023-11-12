@@ -180,16 +180,16 @@ function showUser(str) {
         var options3 = {
           title: '<?php echo $country; ?>',
           is3D: true,
-          pieHole: 0.5,
-          chartArea:{
-            width:'100%',
-            height:'75%'
-          },
-          colors:['#CBE4F9','#CDF5F6','#EFF9DA','#F9EBDF','#F9D8D6','#D6CDEA']
+          // pieHole: 0.5,
+          // chartArea:{
+          //   width:'100%',
+          //   height:'75%'
+          // },
+          // colors:['#CBE4F9','#CDF5F6','#EFF9DA','#F9EBDF','#F9D8D6','#D6CDEA']
          
         };
 
-        var chart3 = new google.visualization.PieChart(document.getElementById('pie_div'));
+        var chart3 = new google.visualization.BarChart(document.getElementById('pie_div'));
 
         chart3.draw(data3, options3);
       }
