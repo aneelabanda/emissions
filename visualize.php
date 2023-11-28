@@ -14,7 +14,7 @@ $dbName = "CO2_emissions";
  
 //establishing the connection to the db.
 // $conn = new mysqli($servername, $username, $password, $dbName);
- 
+ //
 // //checking if there were any error during the last connection attempt
 // if ($conn->connect_error) {
 //   die("Connection failed: " . $conn->connect_error);
