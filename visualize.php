@@ -28,6 +28,7 @@ $dbName = "CO2_emissions";
   //  if($con){
   //    echo "connected";
   //  }
+  //
   //  if (!$con) {
   //   die("Connection failed: " . mysqli_connect_error());
   //   }
