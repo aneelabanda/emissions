@@ -2,14 +2,27 @@
 <html><head><meta charset="utf-8"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="assets/css/main.css"></head><body>
 
 		<!-- Header -->
+		<script>
+			function myFunction() {
+			  var x = document.getElementById("myTopnav");
+			  if (x.className === "topnav") {
+				x.className += " responsive";
+			  } else {
+				x.className = "topnav";
+			  }
+			}
+			</script>
 			<header id="header"><div class="inner">
 					<a href="index.html" class="logo"><strong>CO2 Emission</strong>Tracking</a>
-					<nav id="nav"><a href="index.html">Home</a>
+					<nav class="topnav" id="myTopnav"><a href="index.html">Home</a>
 						<a href="visualize.php">Visualize</a>
 						<a href="health.php">Correlate with health</a>
 
 						<!--<a href="elements.html">Elements</a>-->
-					</nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+					</nav>
+					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+						<i class="fa fa-bars"></i>
+					  </a><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
 			</header><!-- Banner --><section id="banner"><div class="inner">
 					<header><h1><strong>Welcome!</strong></h1>
