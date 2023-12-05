@@ -112,6 +112,12 @@ function showUser(str) {
   }
 }
 </script> -->
+<script>
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("graph").style.display = "block";
+}
+</script>
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
@@ -264,10 +270,11 @@ function showUser(str) {
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
-  <input type="submit" value="Submit" name="submit"></div>
+  <input type="submit" value="Submit" name="submit" onsubmit="showPage()"></div>
 </form>
     </div>
-    <div class="grid-container">
+    <div id="loader"></div>
+    <div class="grid-container" id="graph" style="display: none;">
     <div class="grid-item" id="regions_div"></div>
     <div class="grid-item" id="year_div"></div>
     <div class="grid-item" id="pie_div"></div>
