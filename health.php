@@ -280,7 +280,7 @@ function showPage() {
   </section>
   <section>
     <div id="loader"></div>
-    <div class="grid-container" id="graph"  style="display: none;">
+    <div class="grid-container" id="graph" style="display: none;">
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
