@@ -275,10 +275,10 @@ function showPage() {
     </div>
     <div id="loader"></div>
     <div class="grid-container" id="graph" style="display: none;">
-    <div class="grid-item" id="regions_div" style="display: none;">></div>
-    <div class="grid-item" id="year_div" style="display: none;">></div>
-    <div class="grid-item" id="pie_div" style="display: none;">></div>
-    <div class="grid-item" id="bar_div"style="display: none;">></div>
+    <div class="grid-item" id="regions_div" ></div>
+    <div class="grid-item" id="year_div" ></div>
+    <div class="grid-item" id="pie_div" ></div>
+    <div class="grid-item" id="bar_div"></div>
   </div>
 </header>
 </body>
