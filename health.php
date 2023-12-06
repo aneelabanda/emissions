@@ -142,6 +142,7 @@ function showPage() {
           hAxis: {title: 'Countries'},
           vAxis: {title: 'No.of Deaths due to <?php echo $healthissue; ?>'},
         };
+
         document.getElementById("loader").style.display = "none";
         document.getElementById("graph").style.display = "block";
         var chart1 = new google.visualization.LineChart(document.getElementById('regions_div'));
@@ -272,7 +273,7 @@ function showPage() {
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
-  <input type="submit" value="Submit" name="submit" onclick="showPage()"></div>
+  <input type="submit" value="Submit" name="submit" onclick="drawRegionsMap()"></div>
 </form>
     </div>
   </section>
