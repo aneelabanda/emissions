@@ -218,6 +218,7 @@ function showPage() {
         </nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
 <div>
+  <section>
     <form method="POST">
       <div class="flex-container">
   <select name="Year" id="Year" placeholder="Choose a Year">
@@ -273,13 +274,16 @@ function showPage() {
   <input type="submit" value="Submit" name="submit"></div>
 </form>
     </div>
-    <div id="loader"></div>
-    <div class="grid-container" id="graph">
+  </section>
+  <section>
+    <div id="loader" ></div>
+    <div class="grid-container" id="graph" style="display:none;">
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
     <div class="grid-item" id="bar_div"></div>
   </div>
+  </section>
 </header>
 </body>
 </html>
