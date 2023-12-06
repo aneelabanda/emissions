@@ -112,16 +112,16 @@ function showUser(str) {
 var bool=false;
 function showPage() {
   bool=true;
-  document.getElementById("graph").style.display = "block";
+  //document.getElementById("graph").style.display = "block";
   drawRegionsMap();
 }
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
-      if(!bool){
-      document.getElementById("graph").style.display = "none";
+      if(bool){
+        google.charts.setOnLoadCallback(drawRegionsMap);
       }
-      google.charts.setOnLoadCallback(drawRegionsMap);
+      
 
       function drawRegionsMap() {
        var data1 = google.visualization.arrayToDataTable([
@@ -278,7 +278,7 @@ function showPage() {
   </section>
   <section>
     <div id="loader" style="display: none;"></div>
-    <div class="grid-container" id="graph" >
+  <div class="grid-container" id="graph" >
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
