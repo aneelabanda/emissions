@@ -109,16 +109,20 @@ function showUser(str) {
 
 </script>
     <script type="text/javascript">
-var bool=false;
+
 function showPage() {
-  bool=true;
-  //document.getElementById("graph").style.display = "block";
+  
+  
   //drawRegionsMap();
   google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
   google.charts.setOnLoadCallback(drawRegionsMap);
-  //function drawRegionsMap() {
+  document.getElementById("graph").style.display = "block";
+}
+     
+
+      function drawRegionsMap() {
        var data1 = google.visualization.arrayToDataTable([
           ['Country_code', 'No.of Deaths due to <?php echo $healthissue ?>'],
           <?php
@@ -201,98 +205,7 @@ function showPage() {
         var chart4 = new google.visualization.ColumnChart(document.getElementById('bar_div'));
 
         chart4.draw(data3, options3);
-      //}
-}
-     
-      if(bool){
-       
       }
-      
-
-      // function drawRegionsMap() {
-      //  var data1 = google.visualization.arrayToDataTable([
-      //     ['Country_code', 'No.of Deaths due to <?php echo $healthissue ?>'],
-      //     <?php
-      //     // Loop through the data and format it as JavaScript array elements
-      //     while ($row = mysqli_fetch_assoc($result1)) {
-      //         echo "['". $row['Code_y'] ."',". $row[$healthissue]."], ";
-      //     }
-      //     ?>
-      //   ]);
-
-       
-      //   var options1 = {
-      //     title: '<?php echo $year; ?>',
-      //     is3D: true,
-      //     hAxis: {title: 'Countries'},
-      //     vAxis: {title: 'No.of Deaths due to <?php echo $healthissue; ?>'},
-      //   };
-
-      //   // document.getElementById("loader").style.display = "none";
-      //   // document.getElementById("graph").style.display = "block";
-      //   var chart1 = new google.visualization.LineChart(document.getElementById('regions_div'));
-
-      //   chart1.draw(data1, options1);
-
-
-      //   var data2 = google.visualization.arrayToDataTable([
-      //     ['Country', 'No.of Deaths due to <?php echo $healthissue ?>', 'CO2_emissions'],
-      //     ['',0,0],
-      //     <?php
-      //     // Loop through the data and format it as JavaScript array elements
-      //     while ($row = mysqli_fetch_assoc($result5)) {
-      //       $emissions = $row["CO2_emissions"] /100000;
-      //       echo "['". $row['Country'] ."',". $row[$healthissue].",". $emissions ."], ";
-      //     }
-
-      //     ?>
-      //     ['',0,0]
-      //   ]);
-
-       
-      //   var options2 = {
-      //     title: '<?php echo $year; ?>',
-      //     is3D: true,
-      //     vAxis: {title: 'No.of Deaths due to <?php echo $healthissue; ?>'},
-
-      //   };
-
-      //   var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
-
-      //   chart2.draw(data2, options2);
-
-      //   var data3 = google.visualization.arrayToDataTable([
-      //     ['Year', 'No.of Deaths due to <?php echo $healthissue ?>'],
-      //     <?php
-      //     // Loop through the data and format it as JavaScript array elements
-      //     while ($row = mysqli_fetch_assoc($result6)) {
-      //       echo "['". $row['Year'] ."',". $row[$healthissue]."], ";
-      //   }
-
-      //     ?>
-        
-      //   ]);
-
-       
-      //   var options3 = {
-      //     title: '<?php echo $country; ?>',
-      //     is3D: true,
-      //     // pieHole: 0.5,
-      //     // chartArea:{
-      //     //   width:'100%',
-      //     //   height:'75%'
-      //     // },
-      //     // colors:['#CBE4F9','#CDF5F6','#EFF9DA','#F9EBDF','#F9D8D6','#D6CDEA']
-         
-      //   };
-
-      //   var chart3 = new google.visualization.BarChart(document.getElementById('pie_div'));
-
-      //   chart3.draw(data3, options3);
-      //   var chart4 = new google.visualization.ColumnChart(document.getElementById('bar_div'));
-
-      //   chart4.draw(data3, options3);
-      // }
     </script>
     
 </head>
@@ -364,7 +277,7 @@ function showPage() {
   </section>
   <section>
     <div id="loader" style="display: none;"></div>
-  <div class="grid-container" id="graph" >
+  <div class="grid-container" id="graph" style="display: none;">
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
