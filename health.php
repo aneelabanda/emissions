@@ -118,7 +118,7 @@ function showPage() {
         'packages': ['corechart', 'line'],
       });
   google.charts.setOnLoadCallback(drawRegionsMap);
-  function drawRegionsMap() {
+  //function drawRegionsMap() {
        var data1 = google.visualization.arrayToDataTable([
           ['Country_code', 'No.of Deaths due to <?php echo $healthissue ?>'],
           <?php
@@ -201,7 +201,7 @@ function showPage() {
         var chart4 = new google.visualization.ColumnChart(document.getElementById('bar_div'));
 
         chart4.draw(data3, options3);
-      }
+      //}
 }
      
       if(bool){
