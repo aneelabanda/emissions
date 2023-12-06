@@ -123,7 +123,7 @@ function showPage() {
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
-      //google.charts.setOnLoadCallback(drawRegionsMap);
+      google.charts.setOnLoadCallback(drawRegionsMap);
       
       function drawRegionsMap() {
         var data1 = google.visualization.arrayToDataTable([
