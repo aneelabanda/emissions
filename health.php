@@ -110,7 +110,7 @@ function showUser(str) {
 </script>
     <script type="text/javascript">
 
-function showPage() {
+
   
   
   //drawRegionsMap();
@@ -118,9 +118,9 @@ function showPage() {
         'packages': ['corechart', 'line'],
       });
   google.charts.setOnLoadCallback(drawRegionsMap);
-  document.getElementById("graph").style.display = "block";
-  event.preventDefault();
-}
+//   document.getElementById("graph").style.display = "block";
+//   //event.preventDefault();
+// }
      
 
       function drawRegionsMap() {
@@ -272,13 +272,13 @@ function showPage() {
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
-  <input type="submit" value="Submit" name="submit" onclick="showPage()"></div>
+  <input type="submit" value="Submit" name="submit"></div>
 </form>
     </div>
   </section>
   <section>
     <div id="loader" style="display: none;"></div>
-  <div class="grid-container" id="graph" style="display: none;">
+  <div class="grid-container" id="graph">
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
