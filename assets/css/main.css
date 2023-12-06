@@ -291,7 +291,7 @@
 /* Grid */
 	.grid-container {
 		display: grid;
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 100% ;
 		padding: 5px;
  	}
    .grid-item {
