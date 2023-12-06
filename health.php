@@ -112,10 +112,10 @@ function showUser(str) {
   }
 }
 </script> -->
-<script>
+<script type="text/javascript">
 function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("graph").style.display = "block";
+  document.getElementById("#loader").style.display = "none";
+  document.getElementById("#graph").style.display = "block";
 }
 </script>
     <script type="text/javascript">
@@ -142,7 +142,8 @@ function showPage() {
           hAxis: {title: 'Countries'},
           vAxis: {title: 'No.of Deaths due to <?php echo $healthissue; ?>'},
         };
-
+        document.getElementById("#loader").style.display = "none";
+        document.getElementById("#graph").style.display = "block";
         var chart1 = new google.visualization.LineChart(document.getElementById('regions_div'));
 
         chart1.draw(data1, options1);
