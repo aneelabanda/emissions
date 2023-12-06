@@ -106,17 +106,21 @@ function showUser(str) {
 }
 </script> -->
 <script type="text/javascript">
+
+</script>
+    <script type="text/javascript">
+var bool=false;
 function showPage() {
+  bool=true;
   document.getElementById("graph").style.display = "block";
   drawRegionsMap();
 }
-</script>
-    <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
+      if(!bool){
       document.getElementById("graph").style.display = "none";
-
+      }
       google.charts.setOnLoadCallback(drawRegionsMap);
 
       function drawRegionsMap() {
