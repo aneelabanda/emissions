@@ -171,9 +171,9 @@ function showUser(str) {
 
         };
 
-        if ($result5){var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));}
+        var chart2 = new google.visualization.AreaChart(document.getElementById('year_div'));
 
-        chart2.draw(data2, options2);
+        if($result){chart2.draw(data2, options2);}
 
         var data3 = google.visualization.arrayToDataTable([
           ['Year', 'No.of Deaths due to <?php echo $healthissue ?>'],
