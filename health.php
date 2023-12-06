@@ -119,6 +119,7 @@ function showPage() {
       });
   google.charts.setOnLoadCallback(drawRegionsMap);
   document.getElementById("graph").style.display = "block";
+  event.preventDefault();
 }
      
 
