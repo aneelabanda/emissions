@@ -5,20 +5,13 @@ $servername = "localhost:3306";
 //the default value is root
 $username = "root";
  
-//password to connect to the db
-//this is the value you would have specified during installation of WAMP stack
+
 $password = "AnushAn33laJ0ey";
  
 //name of the db under which the table is created
 $dbName = "CO2_emissions";
  
-//establishing the connection to the db.
-// $conn = new mysqli($servername, $username, $password, $dbName);
- 
-// //checking if there were any error during the last connection attempt
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
+
  
    $con = mysqli_connect($servername, $username, $password, $dbName);
    $query = "SELECT * FROM `merged_data`";
@@ -117,13 +110,14 @@ function showPage() {
   document.getElementById("#loader").style.display = "none";
   document.getElementById("#graph").style.display = "block";
   drawRegionsMap();
+  google.charts.setOnLoadCallback(drawRegionsMap);
 }
 </script>
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
-      google.charts.setOnLoadCallback(drawRegionsMap);
+      
       
       function drawRegionsMap() {
         var data1 = google.visualization.arrayToDataTable([
