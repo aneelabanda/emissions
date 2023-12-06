@@ -114,11 +114,12 @@ function showPage() {
   bool=true;
   //document.getElementById("graph").style.display = "block";
   //drawRegionsMap();
-  google.charts.setOnLoadCallback(drawRegionsMap);
-}
-      google.charts.load('current', {
+  google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
+  google.charts.setOnLoadCallback(drawRegionsMap);
+}
+     
       if(bool){
        
       }
