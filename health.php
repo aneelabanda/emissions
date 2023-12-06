@@ -40,7 +40,7 @@ $dbName = "CO2_emissions";
         $country = mysqli_real_escape_string($con,$_POST['Country']);
         $healthissue = mysqli_real_escape_string($con,$_POST['HealthIssue']);
         
-         echo `$healthissue`;
+         //echo `$healthissue`;
         // Store the Category ID in a "id" variable      
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
@@ -107,20 +107,20 @@ function showUser(str) {
 </script> -->
 <script type="text/javascript">
 function showPage() {
-  document.getElementById("#loader").style.display = "none";
-  document.getElementById("#graph").style.display = "block";
+  document.getElementById("graph").style.display = "block";
   drawRegionsMap();
-  google.charts.setOnLoadCallback(drawRegionsMap);
 }
 </script>
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
-      
-      
+      document.getElementById("graph").style.display = "none";
+
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
       function drawRegionsMap() {
-        var data1 = google.visualization.arrayToDataTable([
+       var data1 = google.visualization.arrayToDataTable([
           ['Country_code', 'No.of Deaths due to <?php echo $healthissue ?>'],
           <?php
           // Loop through the data and format it as JavaScript array elements
