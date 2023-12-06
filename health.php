@@ -116,17 +116,15 @@ function showUser(str) {
 function showPage() {
   document.getElementById("#loader").style.display = "none";
   document.getElementById("#graph").style.display = "block";
+  drawRegionsMap();
 }
 </script>
     <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
-      google.charts.setOnLoadCallback(drawRegionsMap);
-      function showPage() {
-      document.getElementById("#loader").style.display = "none";
-      document.getElementById("#graph").style.display = "block";
-      }
+      //google.charts.setOnLoadCallback(drawRegionsMap);
+      
       function drawRegionsMap() {
         var data1 = google.visualization.arrayToDataTable([
           ['Country_code', 'No.of Deaths due to <?php echo $healthissue ?>'],
@@ -281,7 +279,7 @@ function showPage() {
     </div>
   </section>
   <section>
-    <div id="loader" ></div>
+    <div id="loader"></div>
     <div class="grid-container" id="graph"  style="display: none;">
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
