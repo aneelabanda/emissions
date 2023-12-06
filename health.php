@@ -113,13 +113,14 @@ var bool=false;
 function showPage() {
   bool=true;
   //document.getElementById("graph").style.display = "block";
-  drawRegionsMap();
+  //drawRegionsMap();
+  google.charts.setOnLoadCallback(drawRegionsMap);
 }
       google.charts.load('current', {
         'packages': ['corechart', 'line'],
       });
       if(bool){
-        google.charts.setOnLoadCallback(drawRegionsMap);
+       
       }
       
 
