@@ -271,7 +271,7 @@ function showPage() {
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
-  <input type="submit" value="Submit" name="submit"></div>
+  <input type="submit" value="Submit" name="submit" onsubmit="showPage()"></div>
 </form>
     </div>
   </section>
