@@ -220,6 +220,7 @@ function showPage() {
             <a href="health.php">Correlate with health</a>
         </nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
+    </header>
 <div>
   <section>
     <form method="POST">
@@ -287,6 +288,6 @@ function showPage() {
     <div class="grid-item" id="bar_div"></div>
   </div>
   </section>
-</header>
+
 </body>
 </html>
