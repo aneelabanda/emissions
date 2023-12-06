@@ -279,8 +279,8 @@ function showPage() {
     </div>
   </section>
   <section>
-    <div id="loader"></div>
-    <div class="grid-container" id="graph" style="display: none;">
+    <div id="loader" style="display: none;"></div>
+    <div class="grid-container" id="graph" >
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
