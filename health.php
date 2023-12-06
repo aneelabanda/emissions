@@ -270,11 +270,11 @@ function showPage() {
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
-  <input type="submit" value="Submit" name="submit" onsubmit="showPage()"></div>
+  <input type="submit" value="Submit" name="submit"></div>
 </form>
     </div>
     <div id="loader"></div>
-    <div class="grid-container" id="graph" style="display: none;">
+    <div class="grid-container" id="graph">
     <div class="grid-item" id="regions_div" ></div>
     <div class="grid-item" id="year_div" ></div>
     <div class="grid-item" id="pie_div" ></div>
