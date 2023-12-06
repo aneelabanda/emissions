@@ -123,7 +123,10 @@ function showPage() {
         'packages': ['corechart', 'line'],
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
-
+      function showPage() {
+      document.getElementById("#loader").style.display = "none";
+      document.getElementById("#graph").style.display = "block";
+      }
       function drawRegionsMap() {
         var data1 = google.visualization.arrayToDataTable([
           ['Country_code', 'No.of Deaths due to <?php echo $healthissue ?>'],
@@ -223,7 +226,7 @@ function showPage() {
   <section>
     <form method="POST">
       <div class="flex-container">
-  <select name="Year" id="Year" placeholder="Choose a Year">
+  <select name="Year" id="Year" placeholder="Choose a Year" required>
   <option value="" disabled selected>Choose a Year to visualize the CO2 emissions</option>
   <?php
     while ($row = mysqli_fetch_assoc($result4)){
@@ -237,7 +240,7 @@ function showPage() {
     }
     ?>
   </select>
-  <select name="Country" id="Country" placeholder="Choose a Country">
+  <select name="Country" id="Country" placeholder="Choose a Country" required>
   <option value="" disabled selected>Choose a Country</option>
  <?php
     while ($row = mysqli_fetch_assoc($result2)){
@@ -255,7 +258,7 @@ function showPage() {
   <option value="1992">1992</option>
   <option value="1993">1993</option> -->
   </select>
-  <select name="HealthIssue" id="HealthIssue" placeholder="Choose an Issue">
+  <select name="HealthIssue" id="HealthIssue" placeholder="Choose an Issue" required>
   <option value="" disabled selected>Choose an Issue</option>
   <?php
     while ($row = mysqli_fetch_assoc($result3)){
