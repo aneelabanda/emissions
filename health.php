@@ -278,7 +278,7 @@ function showPage() {
     <div class="grid-item" id="regions_div" style="display: none;">></div>
     <div class="grid-item" id="year_div" style="display: none;">></div>
     <div class="grid-item" id="pie_div" style="display: none;">></div>
-    <div class="grid-item" id="bar_div"style="display: none;">></div>
+    <!-- <div class="grid-item" id="bar_div"style="display: none;">></div> -->
   </div>
 </header>
 </body>
